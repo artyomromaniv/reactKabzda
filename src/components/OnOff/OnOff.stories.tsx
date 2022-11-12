@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import OnOff from "./OnOff";
+import {ComponentStory, ComponentMeta} from '@storybook/react';
+import {OnOff} from "./OnOff";
+import {action} from "@storybook/addon-actions";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'OnOff stories',
+    title: 'OnOff',
     component: OnOff,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
-        backgroundColor: { control: 'color' },
+        backgroundColor: {control: 'color'},
     },
 } as ComponentMeta<typeof OnOff>;
 
@@ -17,15 +17,12 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof OnOff> = (args) => <OnOff {...args} />;
 
+const callback = action("On or Off clicked")
 
-// export const EmptyRating = () => <Rating value={0} onClick={x=>x}/>
-// export const Rating1 = () => <Rating value={1} onClick={x=>x}/>
-// export const Rating2 = () => <Rating value={2} onClick={x=>x}/>
-// export const Rating3 = () => <Rating value={3} onClick={x=>x}/>
-// export const Rating4 = () => <Rating value={4} onClick={x=>x}/>
-// export const Rating5 = () => <Rating value={5} onClick={x=>x}/>
-//
-// export const RatingChanging = () => {
-//     const[rating,setRating] = useState<RatingValueType>(3)
-//     return <Rating value={rating} onClick={setRating}/>
-// }
+export const OnMode = () => <OnOff on={true} onChange={callback}/>
+export const OffMode = () => <OnOff on={false} onChange={callback}/>
+
+export const ModeChanging = () => {
+    const [mode,setMode] = useState(false)
+    return <OnOff on={mode} onChange={setMode}/>
+}
