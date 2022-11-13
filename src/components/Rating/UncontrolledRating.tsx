@@ -26,7 +26,6 @@ export function UncontrolledRating(props: RatingPropsType) {
 
 type StarPropsType = {
     selected: boolean
-
     setValue: () => void
 }
 
