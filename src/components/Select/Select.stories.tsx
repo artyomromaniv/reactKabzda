@@ -17,24 +17,31 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
-export const WithValue = () =>
-    <>
+export const WithValue = () => {
+    const [value,setValue] = useState("2")
+    return <>
         <Select
-            onChange={action("Value changed")}
-            value={"2"}
+            onChange={setValue}
+            value={value}
             items={[
                 {value: "1", title: "Minsk"},
                 {value: "2", title: "Moscow"},
                 {value: "3", title: "Kiev"}
             ]}/>
     </>
-export const WithoutValue = () =>
-    <>
+}
+
+export const WithoutValue = () => {
+    const [value,setValue] = useState(null)
+
+    return <>
         <Select
-            onChange={action("Value changed")}
+            onChange={setValue}
+            value={value}
             items={[
                 {value: "1", title: "Minsk"},
                 {value: "2", title: "Moscow"},
                 {value: "3", title: "Kiev"}
             ]}/>
    </>
+}
