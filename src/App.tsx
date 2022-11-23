@@ -32,11 +32,11 @@ function App(props: any) {
             <Rating value={5}/>*/}
            {/*  <OnOff />
             <OnOff />*/}
-          {/*  <UncontrolledAccordion  titleValue={'Menu'}/>
+           <UncontrolledAccordion  titleValue={'Menu'}/>
             <UncontrolledAccordion  titleValue={'Users'}/>
-            <UncontrolledRating/>
-            <Rating value={ratingValue} onClick={setRatingValue}/>*/}
-              <OnOff on={switchOn} onChange={(on)=>{setSwitchOn(on)}}/>
+            {/*<UncontrolledRating/>*/}
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*!/*/}
+            {/*  <OnOff on={switchOn} onChange={(on)=>{setSwitchOn(on)}}/>*/}
          {/*   <OnOff />*/}
            {/* <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}*/}
         </div>
