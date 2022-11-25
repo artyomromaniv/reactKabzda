@@ -1,20 +1,33 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {useState} from 'react';
 
 export default {
     title: 'useMemo',
 }
 
-export const Example1 = () => {
+export const DifficultCountingExample = () => {
     const [a, setA] = useState<number>(5)
     const [b, setB] = useState<number>(5)
 
     let resultA = 1;
     let resultB = 1;
 
-    for (let i = 1; i <= a; i++) {
-        resultA = resultA * i;
-    }
+    //помещаем сложную вычислительную ф-цию внтурь useMemo, и ставим зависимость от нашей переменной
+    //чтобы ф-ция браа значение из кэша,и не пересчитывалась при перерендере
+    resultA = useMemo(() => {
+        for (let i = 1; i <= a; i++) {
+            let fake = 0;
+            while (fake < 1000000) {
+                fake++;
+                const fakeValue = Math.random()
+            }
+            resultA = resultA * i;
+        }
+
+        return resultA
+    }, [a])
+
+
     for (let i = 1; i <= b; i++) {
         resultB = resultB * i;
     }
@@ -30,5 +43,31 @@ export const Example1 = () => {
         <div>
             Result for b: {resultB}
         </div>
+    </>
+}
+
+
+const UsersSecret = (props: { users: Array<string> }) => {
+    console.log("Users Secret")
+    return <div>
+        {props.users.map((u, i) => <div key={i}>{u}</div>)}
+    </div>
+}
+
+const Users = React.memo(UsersSecret)
+
+export const HelpsToReactMemo = () => {
+    const [counter,setCounter] = useState(0)
+    const [users,setUsers] = useState(["dimych","valera","artem"])
+
+
+    const newArray = useMemo( () => {
+        return users.filter(u => u.toLowerCase().indexOf("a") > -1)
+    }, [users])
+
+    return <>
+        <button onClick={ ()=>setCounter(counter+1) }>+</button>
+        {counter}
+        <Users users={newArray}/>
     </>
 }
