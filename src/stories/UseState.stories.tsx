@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, {useState} from 'react';
 
 export default {
     title: 'useState demo',
 }
 
- function generateData() {
+export function generateData() {
     console.log("generate Data")
     return 1
 }

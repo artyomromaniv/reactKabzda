@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {clearInterval} from "timers";
+
 
 export type ClockPropsType = {
 

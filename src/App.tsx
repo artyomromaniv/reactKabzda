@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
-import Accordion from "./components/accordion/Accordion";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
-import OnOff from "./components/OnOff/OnOff";
-import {UncontrolledAccordion} from "./components/accordion/UncontrolledAccordion";
+
 import {UncontrolledRating} from "./components/Rating/UncontrolledRating";
-import accordion from "./components/accordion/Accordion";
 import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
 
 
@@ -32,8 +29,7 @@ function App(props: any) {
             <Rating value={5}/>*/}
            {/*  <OnOff />
             <OnOff />*/}
-           <UncontrolledAccordion  titleValue={'Menu'}/>
-            <UncontrolledAccordion  titleValue={'Users'}/>
+
             {/*<UncontrolledRating/>*/}
             {/*<Rating value={ratingValue} onClick={setRatingValue}/>*!/*/}
             {/*  <OnOff on={switchOn} onChange={(on)=>{setSwitchOn(on)}}/>*/}

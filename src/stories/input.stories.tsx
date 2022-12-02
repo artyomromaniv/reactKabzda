@@ -7,10 +7,7 @@ export default {
     title: 'Example/input',
     //component: input,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-    argTypes: {
-        backgroundColor: {control: 'color'},
-    },
-} as ComponentMeta<typeof input>;
+}
 
 
 export const UncontrolledInput = () => <input/>
